@@ -10,7 +10,7 @@ def cochran(f1, f2, q):
     result = fish/(fish + f2 - 1)
     return result
 
-def part2(yi, x, y):
+def coeffs_criterias(yi, x, y):
     global b, m
     k = len(x[0])
     mx = [[] for i in range(k)]
@@ -75,7 +75,7 @@ def part2(yi, x, y):
     else:
         print("Cochran's C: :(")
         m += 1
-        return part1(x)
+        return generate_y(x)
 
     S2v = sum(S2) / 4
 
@@ -131,7 +131,7 @@ def print_line(m):
     print("-" * 12 * (m+1))
 
 
-def part1(x):
+def generate_y(x):
     print_line(m)
     print("| " + '{:<10}'.format(""), end="")
     for i in range(1, m+1):
@@ -157,7 +157,7 @@ def part1(x):
 
     print("y (середні): " + str(yi))
 
-    part2(yi, x, y)
+    coeffs_criterias(yi, x, y)
 
 max_num = 205
 min_num = 175
@@ -179,4 +179,4 @@ while True:
     else:
         print("m must be integer")
 
-part1(x)
+generate_y(x)
